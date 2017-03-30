@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Käibemaksu arvutus</title>
+		<title>Valuutakonverter</title>
 		<meta charset="UTF-8" />
 		<script type="text/javascript">
 			function arvuta(){
-				var letihind=
-					parseFloat(document.getElementById("letihind").value);
-				var km=letihind*20/120;
+				var antavSumma = parseFloat(document.getElementById("antavSumma").value);
+				var kurss = parseFloat(document.getElementById("kurss").value);
+				var komisjon = parseFloat(document.getElementById("komisjon").value);
+				var km=(antavSumma*kurss)-komisjon;
 				// km=Math.round(km*100)/100; //ümardus 2 kohta pärast koma.
 				km=km.toFixed(2);
 				document.getElementById("vastus").innerHTML=km;
@@ -15,12 +16,17 @@
 		</script>
 	</head>
 	<body>
-		<h1>Katsetuste leht</h1>
-		Palun sisesta letihind:
-		<input type="text" id="letihind" />
-		<input type="button" value="OK" onclick="arvuta();" />
+		<h1>Valuutakonverter  EUR > US DOLLAR</h1>
+		<br />Palun sisesta antav summa:
+		<input type="text" id="antavSumma" />
+		<br />Palun sisesta kurss:
+		<input type="text" id="kurss" />
+		<br />Palun sisesta komisjonitasu:
+		<input type="text" id="komisjon" />
+		<br /><input type="button" value="ARVUTA" onclick="arvuta();" />
+		<br /> Sinu kättesaadav summa on : 
 		<div id="vastus">
-			Vastuse koht.
+			vastus 
 		</div>
 	</body>
 </html>
