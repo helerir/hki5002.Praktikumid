@@ -1,9 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Taksohinna kalkulaator</title>
-</head>
-<body>
-
-</body>
+	<head>
+		<title>Taksohinna kalkulaator</title>
+		<meta charset="UTF-8" />
+		<script type="text/javascript">
+			function arvuta(){
+				var sisseastumistasu = 2.50;
+				var kilomeetrihind = 0.5;
+				var km = parseFloat(document.getElementById("km").value);
+				var soiduhind=(kilomeetrihind*km)+sisseastumistasu;
+				soiduhind=soiduhind.toFixed(2);
+				document.getElementById("vastus").innerHTML=soiduhind;
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Taksohinna kalkulaator</h1>
+		<br />Sisseastumistasu: 
+		<p>2.50 eur</p>
+		<br />Kilomeetrihind: 
+		<p>0.5 eur</p>
+		<br />Sisesta kilomeetrid: 
+		<br /><input type="text" id="km" />
+		<br />
+		<input type="button" value="ARVUTA" onclick="arvuta();" />
+		<br />
+		<br />Sinu sõiduhind on: 
+		<div id="vastus">
+			vastus 
+		</div>		
+	</body>
 </html>
