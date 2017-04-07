@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Taksohinna kalkulaator</title>
+		<meta charset="UTF-8" />
+		<script type="text/javascript">
+			function arvuta(){
+
+				var seisund = document.getElementById("seisund").value;
+				console.log(seisund);
+				var sisseastumistasu;
+				var kilomeetrihind;
+				var image = document.getElementById("day");
+    			var image2 = document.getElementById("night");
+
+				if(seisund=="paev") {
+					sisseastumistasu = 2.50;
+					kilomeetrihind = 0.5;
+					image.style.display = 'block';
+            		image2.style.display = 'none';
+				} else {
+					sisseastumistasu = 5;
+					kilomeetrihind = 2;
+					image.style.display = 'none';
+            		image2.style.display = 'block';
+				}
+
+				var km = parseFloat(document.getElementById("km").value);
+				var soiduhind=(kilomeetrihind*km)+sisseastumistasu;
+				soiduhind=soiduhind.toFixed(2);
+				document.getElementById("vastus").innerHTML=soiduhind;
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Taksohinna kalkulaator</h1>
+		<br />Sisseastumistasu: 
+		<p>2.50 eur</p>
+		<br />Kilomeetrihind: 
+		<p>0.5 eur</p>
+		<br />Sisesta kilomeetrid: 
+		<br /><input type="text" id="km" />
+		<br />
+		<br />Vali, kas soovid sõita päeval või öösel:
+		<br />
+		<div>
+			<select id="seisund" name="seisundiList" form="seisundiVorm">
+			  <option value="paev">Päev</option>
+			  <option value="oo">Öö</option>
+			</select>
+		</div>
+		<br />
+		<img src="images/day.png" style="display: none; width: 50px;" id="day"/>
+		<img src="images/night.png" style="display: none; width: 50px;" id="night"/>
+		<br /><input type="button" value="ARVUTA" onclick="arvuta();" />
+		<br />
+		<br />Sinu sõiduhind on: 
+		<div id="vastus">
+			vastus 
+		</div>		
+	</body>
+</html>
