@@ -16,7 +16,8 @@
 					"<input type='button' value='&gt;' "+
 				 	" onClick='"+kihinimi+"_ladu.suuremaks();' /> "+
 				 	"<input type='number' id='" +kihinimi+ "_muudetavArv'/>"+
-				 	"<input type='button' value='suurenda' onClick='"+kihinimi+"_ladu.muudetavArv();'/>";
+				 	"<input type='button' value='suurenda' onClick='"+kihinimi+"_ladu.muudetavArv();'/>"+
+				 	"<input type='button' value='Nulli laoseis' onClick='"+kihinimi+"_ladu.tuhjenda();'/>";
 					this.vastusekiht=document.getElementById(kihinimi+"_vastus");
 					this.muudetavKiht=document.getElementById(kihinimi+"_muudetavArv");
 					this.kuva();
@@ -34,6 +35,10 @@
 				}
 				this.muudetavArv=function(){
 					this.kogus=this.kogus+parseInt(this.muudetavKiht.value);
+					this.kuva();
+				}
+				this.tuhjenda=function(){
+					this.kogus=0;
 					this.kuva();
 				}
 				this.algus();
