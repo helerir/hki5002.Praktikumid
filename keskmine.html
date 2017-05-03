@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+	<head>
+	<title>Arvuta aritmeetiline keskmine</title>
+		<script>
+		function Arvutaja(kihinimi, kastitekst, nuputekst, koefitsient){
+			this.algus=function(){
+				this.kiht=document.getElementById(kihinimi);
+				window[kihinimi+"_kalkulaator"]=this;
+				this.kiht.innerHTML=
+				kastitekst+
+				"<input type='number' id='lahter' name='lahter'" +kihinimi+ "_lahtriteArv'/> "+
+				"<input type='button' value='Lisa lahtrid' onClick='"+kihinimi+"_kalkulaator.lahtriteArv();'/><br/><br/>"+
+				"<input type='button' value='"+nuputekst+"' onClick='"+
+				kihinimi+"_kalkulaator.arvuta();' /> "+
+				"<span id='"+kihinimi+"_vastus'></span>";
+				this.kast=document.getElementById(kihinimi+"_lahtriteArv");
+				this.vastusekiht=document.getElementById(kihinimi+"_vastus");
+				this.koefitsient=koefitsient;
+			}
+			this.arvuta=function(){
+				this.vastusekiht.innerHTML=parseFloat(this.kast.value)*this.koefitsient;
+			}
+
+			this.lahtriteArv=function(){
+            // Number of inputs to create
+            this.number=document.getElementById("lahter").value;
+            // Container <div> where dynamic content will be placed
+            this.kihid=document.getElementById("kiht1");
+            // Clear previous contents of the container
+            while (kiht1.hasChildNodes()) {
+                kiht1.removeChild(kiht1.lastChild);
+            }
+            for (i=0;i<number;i++){
+                // Append a node with a random text
+                kihid.appendChild(document.createTextNode("lahter " + (i+1)));
+                // Create an <input> element, set its type and name attributes
+                this.input=document.createElement("input");
+                input.type = "number";
+                input.name = "lahter" + i;
+                kihid.appendChild(input);
+                // Append a line break 
+                kihid.appendChild(document.createElement("br"));
+            }
+        }
+		this.algus();
+		 }
+
+		function lehealgus(){
+			new Arvutaja("kiht1", "Lahtrite arv: ", "Arvuta keskmine", 0.2);
+		}
+		</script>
+	</head>
+	<body onload="lehealgus();">
+		<h1>Arvutamine</h1>
+		<div id="kiht1"></div>
+ 	</body>
+</html>
