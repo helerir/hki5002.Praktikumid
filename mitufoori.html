@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Foor</title>
+    <script>
+      function foor(){
+        this.tuli = "roheline";
+        this.kysiTuli = function(){return this.tuli;}
+        this.muudaTuli = function(uusTuli){this.tuli = uusTuli;}
+      }
+      function leheAlgus() {
+          var f1 = new foor();
+          var f2 = new foor();
+          f1.muudaTuli("kollane");
+          f2.muudaTuli("punane");
+          document.getElementById("vastus").innerHTML = "esimene: " + f1.kysiTuli() + ", teine: " + f2.kysiTuli();
+       }
+    </script>
+  </head>
+  <body onload="leheAlgus()">
+     <div id="vastus"></div>
+  </body>
+</html>
