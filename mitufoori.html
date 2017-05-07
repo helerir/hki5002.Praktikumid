@@ -1,13 +1,18 @@
 <!doctype html>
 <html>
   <head>
-    <title>Foor</title>
+    <title>Mitu Foori</title>
     <script>
       function foor(){
         this.tuli = "roheline";
-        this.kysiTuli = function(){return this.tuli;}
-        this.muudaTuli = function(uusTuli){this.tuli = uusTuli;}
+        this.kysiTuli = function() {
+        	return this.tuli;
+        }
+        this.muudaTuli = function(uusTuli) {
+        	this.tuli = uusTuli;
+        }
       }
+
       function leheAlgus() {
           var f1 = new foor();
           var f2 = new foor();
