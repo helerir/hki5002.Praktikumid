@@ -4,17 +4,18 @@
     <meta charset="utf-8">
     <title>Veebiühendus</title>
     <script>
-       var xhr=new XMLHttpRequest();
-       xhr.onreadystatechange=andmedSaabusid;
-       function loeVeebist(){
+      var xhr=new XMLHttpRequest();
+      xhr.onreadystatechange=andmedSaabusid;
+      function loeVeebist(){
            //meetod GET, fail teade.txt, asünkroonne (tagaplaanil)=jah
           xhr.open("GET", "teade.txt", true);
           xhr.send();
-       }
-       function andmedSaabusid(){
-          if(xhr.readyState==4){  //staadium 4, andmed kohal
-document.getElementById("kiht1").innerHTML=xhr.responseText;
-} }
+      }
+      function andmedSaabusid(){
+        if(xhr.readyState==4){  //staadium 4, andmed kohal
+          document.getElementById("kiht1").innerHTML=xhr.responseText;
+        } 
+      }
     </script>
   </head>
   <body>
